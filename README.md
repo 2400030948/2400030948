@@ -14,7 +14,7 @@
   <a href="https://github.com/2400030948">GitHub</a>
 </p>
 
-<img src="photo.jpeg" width="180" alt="Portrait of Krishna Magar">
+<img src="assets/portrait.svg" width="180" alt="Green dot-matrix portrait of Krishna Magar">
 
 </div>
 

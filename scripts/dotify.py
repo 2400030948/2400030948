@@ -19,12 +19,34 @@ def trim_photo_border(image: Image.Image) -> Image.Image:
     return rgb.crop((left, top, right, bottom))
 
 
-def build_svg(image: Image.Image, columns: int, detail: float, color: bool, circular: bool, dot_size: float) -> str:
+def square_crop(image: Image.Image, focus_x: float, focus_y: float) -> Image.Image:
+    width, height = image.size
+    side = min(width, height)
+    center_x = max(0.0, min(1.0, focus_x)) * width
+    center_y = max(0.0, min(1.0, focus_y)) * height
+    left = max(0, min(width - side, round(center_x - side / 2)))
+    top = max(0, min(height - side, round(center_y - side / 2)))
+    return image.crop((left, top, left + side, top + side))
+
+
+def build_svg(
+    image: Image.Image,
+    columns: int,
+    detail: float,
+    color: bool,
+    circular: bool,
+    dot_size: float,
+    equalize: bool,
+    focus_x: float,
+    focus_y: float,
+) -> str:
     source = trim_photo_border(ImageOps.exif_transpose(image))
-    aspect = source.height / source.width
-    rows = max(1, round(columns * aspect * 0.52))
+    source = square_crop(source, focus_x, focus_y)
+    rows = columns
     source = source.resize((columns, rows), Image.Resampling.LANCZOS)
-    gray = ImageOps.equalize(ImageOps.grayscale(source))
+    gray = ImageOps.grayscale(source)
+    if equalize:
+        gray = ImageOps.equalize(gray)
     width = columns * dot_size
     height = rows * dot_size
     dots = []
@@ -54,8 +76,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="Input image, for example me.png")
     parser.add_argument("output", type=Path, help="Output SVG path")
-    parser.add_argument("--columns", type=int, default=72)
+    parser.add_argument("--columns", "--cols", dest="columns", type=int, default=72)
     parser.add_argument("--detail", type=float, default=1.0, help="Detail multiplier from 0.1 to 2.0")
+    parser.add_argument("--equalize", action="store_true", help="Equalize grayscale contrast")
+    parser.add_argument("--focus", nargs=2, type=float, metavar=("X", "Y"), default=(0.55, 0.45), help="Square crop focus as normalized X Y coordinates")
+    parser.add_argument("--square", action="store_true", help="Use a square crop; retained for guide-compatible commands")
     parser.add_argument("--color", action="store_true")
     parser.add_argument("--circular", action="store_true")
     parser.add_argument("--dot-size", type=float, default=8.0)
@@ -66,7 +91,20 @@ def main() -> None:
         parser.error("columns must be at least 8 and dot-size must be positive")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(args.input) as image:
-        args.output.write_text(build_svg(image, args.columns, max(0.1, min(2.0, args.detail)), args.color, args.circular, args.dot_size), encoding="utf-8")
+        args.output.write_text(
+            build_svg(
+                image,
+                args.columns,
+                max(0.1, min(2.0, args.detail)),
+                args.color,
+                args.circular,
+                args.dot_size,
+                args.equalize,
+                args.focus[0],
+                args.focus[1],
+            ),
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":

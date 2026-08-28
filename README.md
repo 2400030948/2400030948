@@ -2,7 +2,7 @@
 
 # Krishna Magar
 
-<img src="assets/portrait.svg" width="180" alt="Green dot-matrix portrait of Krishna Magar">
+<img src="assets/profile-portrait.png" width="180" alt="Portrait of Krishna Magar">
 
 Software Engineer · Computer Science Engineer
 

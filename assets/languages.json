@@ -3,19 +3,19 @@
   "axes": [
     {
       "label": "TypeScript",
-      "value": 44.0
+      "value": 43.4
     },
     {
       "label": "Java",
-      "value": 22.7
+      "value": 22.3
     },
     {
       "label": "Python",
-      "value": 18.0
+      "value": 19.0
     },
     {
       "label": "JavaScript",
-      "value": 13.5
+      "value": 13.3
     },
     {
       "label": "CSS",
@@ -23,7 +23,7 @@
     },
     {
       "label": "HTML",
-      "value": 0.4
+      "value": 0.6
     }
   ]
 }

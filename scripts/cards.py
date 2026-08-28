@@ -43,14 +43,26 @@ def card(project: dict[str, object], theme: str, metadata: dict[str, object]) ->
     if metadata.get("stargazers_count") is not None:
         live.append(f"Stars: {metadata['stargazers_count']}")
     live_text = "  ·  ".join(live)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="{name} project card">
-<rect x="1" y="1" width="758" height="188" rx="12" fill="{background}" stroke="{border}"/>
-<rect x="1" y="1" width="6" height="188" rx="3" fill="#39D353"/>
-<g font-family="system-ui, sans-serif"><text x="30" y="43" fill="{foreground}" font-size="22" font-weight="700">{name}</text>
-<text x="30" y="78" fill="{muted}" font-size="14">{description}</text>
-<text x="30" y="113" fill="{foreground}" font-size="13">{technologies}</text>
-<text x="30" y="152" fill="{muted}" font-size="12">{html.escape(live_text) if live_text else "Public repository"}</text>
-<a href="{repo}"><text x="650" y="152" fill="#39D353" text-anchor="end" font-size="13" font-weight="700">View repository →</text></a></g></svg>'''
+    words = str(project["description"]).split()
+    lines = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > 52 and current:
+            lines.append(current)
+            current = word
+        else:
+            current = candidate
+    lines.append(current)
+    description_lines = "".join(f'<tspan x="30" dy="{0 if index == 0 else 20}">{html.escape(line)}</tspan>' for index, line in enumerate(lines[:2]))
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 250" role="img" aria-label="{name} project card">
+<rect x="1" y="1" width="458" height="248" rx="12" fill="{background}" stroke="{border}"/>
+<rect x="1" y="1" width="6" height="248" rx="3" fill="#39D353"/>
+<g font-family="system-ui, sans-serif"><text x="30" y="42" fill="{foreground}" font-size="19" font-weight="700">{name}</text>
+<text x="30" y="76" fill="{muted}" font-size="13">{description_lines}</text>
+<text x="30" y="133" fill="{foreground}" font-size="12">{technologies}</text>
+<text x="30" y="180" fill="{muted}" font-size="11">{html.escape(live_text) if live_text else "Public repository"}</text>
+<a href="{repo}"><text x="30" y="218" fill="#39D353" font-size="13" font-weight="700">View repository →</text></a></g></svg>'''
 
 
 def main() -> None:

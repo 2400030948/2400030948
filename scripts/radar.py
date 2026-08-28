@@ -57,7 +57,7 @@ def make_svg(title: str, axes: list[dict[str, object]], theme: str) -> str:
     foreground = "#e6edf3" if dark else "#24292f"
     muted = "#8b949e" if dark else "#57606a"
     grid = "#30363d" if dark else "#d0d7de"
-    width, height, cx, cy, radius = 720, 420, 360, 220, 140
+    width, height, cx, cy, radius = 960, 560, 480, 300, 195
     count = max(3, len(axes))
     rings = []
     for level in (20, 40, 60, 80, 100):
@@ -69,18 +69,18 @@ def make_svg(title: str, axes: list[dict[str, object]], theme: str) -> str:
         end = point(cx, cy, radius, index, count, 100)
         spokes.append(f'<line x1="{cx}" y1="{cy}" x2="{end.split(",")[0]}" y2="{end.split(",")[1]}" stroke="{grid}"/>')
         angle = -math.pi / 2 + (index * 2 * math.pi / count)
-        lx = cx + math.cos(angle) * (radius + 28)
-        ly = cy + math.sin(angle) * (radius + 28)
+        lx = cx + math.cos(angle) * (radius + 40)
+        ly = cy + math.sin(angle) * (radius + 40)
         anchor = "middle" if abs(math.cos(angle)) < 0.35 else ("start" if lx > cx else "end")
-        labels.append(f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" fill="{foreground}">{axis["label"]}</text>')
+        labels.append(f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" dominant-baseline="middle" fill="{foreground}">{axis["label"]}</text>')
     values = " ".join(point(cx, cy, radius, i, count, float(axis["value"])) for i, axis in enumerate(axes))
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">
 <rect width="100%" height="100%" rx="12" fill="{background}"/>
-<text x="32" y="42" fill="{foreground}" font-family="system-ui, sans-serif" font-size="20" font-weight="700">{title}</text>
-<g font-family="system-ui, sans-serif" font-size="13">{"".join(rings)}{"".join(spokes)}
+<text x="40" y="52" fill="{foreground}" font-family="system-ui, sans-serif" font-size="27" font-weight="700">{title}</text>
+<g font-family="system-ui, sans-serif" font-size="18">{"".join(rings)}{"".join(spokes)}
 <polygon points="{values}" fill="{ACCENT}" fill-opacity="0.22" stroke="{ACCENT}" stroke-width="3" stroke-linejoin="round"/>
 {"".join(labels)}</g>
-<text x="32" y="395" fill="{muted}" font-family="system-ui, sans-serif" font-size="12">{("Self-rating, 0-100" if "Self" in title else "Share of detected repository language bytes")}</text>
+<text x="40" y="525" fill="{muted}" font-family="system-ui, sans-serif" font-size="15">{("Self-rating, 0-100" if "Self" in title else "Share of detected repository language bytes")}</text>
 </svg>'''
 
 

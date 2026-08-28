@@ -45,7 +45,7 @@ These are personal working self-ratings, not certifications or formal assessment
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/radar-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/radar-light.svg">
-  <img src="assets/radar-light.svg" width="720" alt="Self-rated engineering focus radar chart">
+  <img src="assets/radar-light.svg" width="960" alt="Self-rated engineering focus radar chart">
 </picture>
 
 ## GitHub Language Mix
@@ -55,34 +55,27 @@ Generated from the language byte counts of my public, non-fork repositories. The
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/languages-radar-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/languages-radar-light.svg">
-  <img src="assets/languages-radar-light.svg" width="720" alt="GitHub repository language mix radar chart">
+  <img src="assets/languages-radar-light.svg" width="960" alt="GitHub repository language mix radar chart">
 </picture>
 
 ## GitHub Activity
 
-The contribution calendar is available on my [GitHub profile](https://github.com/2400030948). The generated visuals below are maintained by scheduled workflows; they may be absent until the workflows have run once.
+The contribution calendar is available on my [GitHub profile](https://github.com/2400030948). Generated metrics and snake visuals are maintained by scheduled workflows. Once those workflows have run, they can be opened from the repository’s `assets/github-metrics.svg`, `output/snake-dark.svg`, and `output/snake-light.svg` files.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/github-metrics.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/github-metrics.svg">
-  <img src="assets/github-metrics.svg" alt="GitHub activity and repository metrics">
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="output/snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="output/snake-light.svg">
-  <img src="output/snake-light.svg" alt="Contribution calendar snake animation">
-</picture>
+<a href="https://github.com/2400030948/2400030948/actions">Open profile asset workflows</a>
 
 ## Featured Projects
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-1-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-1-light.svg"><img src="assets/project-1-light.svg" alt="AI Ecosystem Intelligence Platform project card"></picture>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-2-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-2-light.svg"><img src="assets/project-2-light.svg" alt="Real-Time Inventory Sync project card"></picture>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-3-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-3-light.svg"><img src="assets/project-3-light.svg" alt="SpendWise project card"></picture>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-4-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-4-light.svg"><img src="assets/project-4-light.svg" alt="CampusLens project card"></picture>
+<table>
+  <tr>
+    <td><a href="https://github.com/2400030948/ai-ecosystem-intelligence-platform"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-1-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-1-light.svg"><img src="assets/project-1-light.svg" alt="AI Ecosystem Intelligence Platform project card" width="460"></picture></a><br><a href="https://github.com/2400030948/ai-ecosystem-intelligence-platform">View repository →</a></td>
+    <td><a href="https://github.com/2400030948/realtime-inventory-sync"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-2-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-2-light.svg"><img src="assets/project-2-light.svg" alt="Real-Time Inventory Sync project card" width="460"></picture></a><br><a href="https://github.com/2400030948/realtime-inventory-sync">View repository →</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/2400030948/spendwise"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-3-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-3-light.svg"><img src="assets/project-3-light.svg" alt="SpendWise project card" width="460"></picture></a><br><a href="https://github.com/2400030948/spendwise">View repository →</a></td>
+    <td><a href="https://github.com/2400030948/campuslens"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-4-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/project-4-light.svg"><img src="assets/project-4-light.svg" alt="CampusLens project card" width="460"></picture></a><br><a href="https://github.com/2400030948/campuslens">View repository →</a></td>
+  </tr>
+</table>
 
 ## Competitive Programming
 

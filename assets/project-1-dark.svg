@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="AI Ecosystem Intelligence Platform project card">
-<rect x="1" y="1" width="758" height="188" rx="12" fill="#0d1117" stroke="#30363d"/>
-<rect x="1" y="1" width="6" height="188" rx="3" fill="#39D353"/>
-<g font-family="system-ui, sans-serif"><text x="30" y="43" fill="#e6edf3" font-size="22" font-weight="700">AI Ecosystem Intelligence Platform</text>
-<text x="30" y="78" fill="#8b949e" font-size="14">Collects, normalizes and serves signals across AI startups, models, research, jobs and news.</text>
-<text x="30" y="113" fill="#e6edf3" font-size="13">Python · FastAPI · React · TypeScript · SQLite · LLM gateway</text>
-<text x="30" y="152" fill="#8b949e" font-size="12">Primary language: TypeScript  ·  Stars: 0</text>
-<a href="https://github.com/2400030948/ai-ecosystem-intelligence-platform"><text x="650" y="152" fill="#39D353" text-anchor="end" font-size="13" font-weight="700">View repository →</text></a></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 250" role="img" aria-label="AI Ecosystem Intelligence Platform project card">
+<rect x="1" y="1" width="458" height="248" rx="12" fill="#0d1117" stroke="#30363d"/>
+<rect x="1" y="1" width="6" height="248" rx="3" fill="#39D353"/>
+<g font-family="system-ui, sans-serif"><text x="30" y="42" fill="#e6edf3" font-size="19" font-weight="700">AI Ecosystem Intelligence Platform</text>
+<text x="30" y="76" fill="#8b949e" font-size="13"><tspan x="30" dy="0">Collects, normalizes and serves signals across AI</tspan><tspan x="30" dy="20">startups, models, research, jobs and news.</tspan></text>
+<text x="30" y="133" fill="#e6edf3" font-size="12">Python · FastAPI · React · TypeScript · SQLite · LLM gateway</text>
+<text x="30" y="180" fill="#8b949e" font-size="11">Primary language: TypeScript  ·  Stars: 0</text>
+<a href="https://github.com/2400030948/ai-ecosystem-intelligence-platform"><text x="30" y="218" fill="#39D353" font-size="13" font-weight="700">View repository →</text></a></g></svg>

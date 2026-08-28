@@ -1,0 +1,12 @@
+{
+  "title": "Self-rated engineering focus",
+  "axes": [
+    {"label": "Java", "value": 82},
+    {"label": "Spring Boot", "value": 80},
+    {"label": "Python", "value": 78},
+    {"label": "JavaScript", "value": 72},
+    {"label": "Databases", "value": 76},
+    {"label": "AI / GenAI", "value": 74},
+    {"label": "DSA", "value": 70}
+  ]
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="SpendWise project card">
+<rect x="1" y="1" width="758" height="188" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="1" y="1" width="6" height="188" rx="3" fill="#39D353"/>
+<g font-family="system-ui, sans-serif"><text x="30" y="43" fill="#24292f" font-size="22" font-weight="700">SpendWise</text>
+<text x="30" y="78" fill="#57606a" font-size="14">Corporate financial expense analytics and budget reconciliation system built as Spring Boot microservices.</text>
+<text x="30" y="113" fill="#24292f" font-size="13">Java · Spring Boot · Eureka · OpenFeign · JWT · H2</text>
+<text x="30" y="152" fill="#57606a" font-size="12">Primary language: Java  ·  Stars: 0</text>
+<a href="https://github.com/2400030948/spendwise"><text x="650" y="152" fill="#39D353" text-anchor="end" font-size="13" font-weight="700">View repository →</text></a></g></svg>

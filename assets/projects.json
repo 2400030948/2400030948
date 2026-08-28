@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AI Ecosystem Intelligence Platform",
+    "repo": "ai-ecosystem-intelligence-platform",
+    "description": "Collects, normalizes and serves signals across AI startups, models, research, jobs and news.",
+    "technologies": ["Python", "FastAPI", "React", "TypeScript", "SQLite", "LLM gateway"]
+  },
+  {
+    "name": "Real-Time Inventory Sync",
+    "repo": "realtime-inventory-sync",
+    "description": "Keeps multi-outlet inventory synchronized with transaction-safe orders and live stock updates.",
+    "technologies": ["Node.js", "Express", "React", "Socket.IO", "MongoDB", "AWS"]
+  },
+  {
+    "name": "SpendWise",
+    "repo": "spendwise",
+    "description": "Corporate financial expense analytics and budget reconciliation system built as Spring Boot microservices.",
+    "technologies": ["Java", "Spring Boot", "Eureka", "OpenFeign", "JWT", "H2"]
+  },
+  {
+    "name": "CampusLens",
+    "repo": "campuslens",
+    "description": "College discovery and comparison MVP with searchable, filterable and paginated institution data.",
+    "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"]
+  }
+]

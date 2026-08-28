@@ -1,0 +1,29 @@
+{
+  "title": "GitHub language mix",
+  "axes": [
+    {
+      "label": "TypeScript",
+      "value": 44.0
+    },
+    {
+      "label": "Java",
+      "value": 22.7
+    },
+    {
+      "label": "Python",
+      "value": 18.0
+    },
+    {
+      "label": "JavaScript",
+      "value": 13.5
+    },
+    {
+      "label": "CSS",
+      "value": 1.4
+    },
+    {
+      "label": "HTML",
+      "value": 0.4
+    }
+  ]
+}

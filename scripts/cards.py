@@ -36,7 +36,6 @@ def card(project: dict[str, object], theme: str, metadata: dict[str, object]) ->
     name = html.escape(str(project["name"]))
     description = html.escape(str(project["description"]))
     technologies = html.escape(" · ".join(project["technologies"]))
-    repo = f"https://github.com/{OWNER}/{project['repo']}"
     live = []
     if metadata.get("language"):
         live.append(f"Primary language: {html.escape(str(metadata['language']))}")
@@ -61,8 +60,7 @@ def card(project: dict[str, object], theme: str, metadata: dict[str, object]) ->
 <g font-family="system-ui, sans-serif"><text x="30" y="42" fill="{foreground}" font-size="19" font-weight="700">{name}</text>
 <text x="30" y="76" fill="{muted}" font-size="13">{description_lines}</text>
 <text x="30" y="133" fill="{foreground}" font-size="12">{technologies}</text>
-<text x="30" y="180" fill="{muted}" font-size="11">{html.escape(live_text) if live_text else "Public repository"}</text>
-<a href="{repo}"><text x="30" y="218" fill="#39D353" font-size="13" font-weight="700">View repository →</text></a></g></svg>'''
+<text x="30" y="180" fill="{muted}" font-size="11">{html.escape(live_text) if live_text else "Public repository"}</text></g></svg>'''
 
 
 def main() -> None:

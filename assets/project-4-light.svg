@@ -4,5 +4,4 @@
 <g font-family="system-ui, sans-serif"><text x="30" y="42" fill="#24292f" font-size="19" font-weight="700">CampusLens</text>
 <text x="30" y="76" fill="#57606a" font-size="13"><tspan x="30" dy="0">College discovery and comparison MVP with</tspan><tspan x="30" dy="20">searchable, filterable and paginated institution</tspan></text>
 <text x="30" y="133" fill="#24292f" font-size="12">Next.js · TypeScript · Prisma · PostgreSQL · Tailwind CSS</text>
-<text x="30" y="180" fill="#57606a" font-size="11">Primary language: TypeScript  ·  Stars: 0</text>
-<a href="https://github.com/2400030948/campuslens"><text x="30" y="218" fill="#39D353" font-size="13" font-weight="700">View repository →</text></a></g></svg>
+<text x="30" y="180" fill="#57606a" font-size="11">Primary language: TypeScript  ·  Stars: 0</text></g></svg>

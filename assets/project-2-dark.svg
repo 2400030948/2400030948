@@ -4,5 +4,4 @@
 <g font-family="system-ui, sans-serif"><text x="30" y="42" fill="#e6edf3" font-size="19" font-weight="700">Real-Time Inventory Sync</text>
 <text x="30" y="76" fill="#8b949e" font-size="13"><tspan x="30" dy="0">Keeps multi-outlet inventory synchronized with</tspan><tspan x="30" dy="20">transaction-safe orders and live stock updates.</tspan></text>
 <text x="30" y="133" fill="#e6edf3" font-size="12">Node.js · Express · React · Socket.IO · MongoDB · AWS</text>
-<text x="30" y="180" fill="#8b949e" font-size="11">Primary language: JavaScript  ·  Stars: 0</text>
-<a href="https://github.com/2400030948/realtime-inventory-sync"><text x="30" y="218" fill="#39D353" font-size="13" font-weight="700">View repository →</text></a></g></svg>
+<text x="30" y="180" fill="#8b949e" font-size="11">Primary language: JavaScript  ·  Stars: 0</text></g></svg>

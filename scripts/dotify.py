@@ -10,8 +10,17 @@ from xml.sax.saxutils import escape
 from PIL import Image, ImageOps
 
 
+def trim_photo_border(image: Image.Image) -> Image.Image:
+    """Remove the light margin and dark frame commonly present in ID photos."""
+    rgb = image.convert("RGB")
+    width, height = rgb.size
+    left, top = round(width * 0.025), round(height * 0.025)
+    right, bottom = round(width * 0.975), round(height * 0.975)
+    return rgb.crop((left, top, right, bottom))
+
+
 def build_svg(image: Image.Image, columns: int, detail: float, color: bool, circular: bool, dot_size: float) -> str:
-    source = ImageOps.exif_transpose(image).convert("RGB")
+    source = trim_photo_border(ImageOps.exif_transpose(image))
     aspect = source.height / source.width
     rows = max(1, round(columns * aspect * 0.52))
     source = source.resize((columns, rows), Image.Resampling.LANCZOS)
@@ -26,7 +35,7 @@ def build_svg(image: Image.Image, columns: int, detail: float, color: bool, circ
             if intensity < 0.06:
                 continue
             radius = max(0.35, dot_size * 0.46 * intensity)
-            fill = "#39D353" if color else "#24292f"
+            fill = "#39D353"
             if color:
                 red, green, blue = source.getpixel((x, y))
                 fill = f"#{red:02x}{green:02x}{blue:02x}"

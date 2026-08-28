@@ -14,6 +14,12 @@
   <a href="https://github.com/2400030948">GitHub</a>
 </p>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/portrait.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/portrait.svg">
+  <img src="assets/portrait.svg" width="180" alt="Dot-matrix portrait of Krishna Magar">
+</picture>
+
 </div>
 
 ## About

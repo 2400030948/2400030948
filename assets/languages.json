@@ -3,27 +3,27 @@
   "axes": [
     {
       "label": "TypeScript",
-      "value": 43.4
-    },
-    {
-      "label": "Java",
-      "value": 22.3
-    },
-    {
-      "label": "Python",
-      "value": 19.0
+      "value": 56.4
     },
     {
       "label": "JavaScript",
-      "value": 13.3
+      "value": 21.7
+    },
+    {
+      "label": "Python",
+      "value": 10.7
+    },
+    {
+      "label": "Java",
+      "value": 9.2
     },
     {
       "label": "CSS",
-      "value": 1.4
+      "value": 1.7
     },
     {
       "label": "HTML",
-      "value": 0.6
+      "value": 0.3
     }
   ]
 }

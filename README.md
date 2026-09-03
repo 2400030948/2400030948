@@ -62,9 +62,17 @@ Self-ratings are personal working estimates, not certifications. Language mix is
 
 ## `~/` the numbers
 
-Public repository statistics are available from <a href="https://github.com/2400030948?tab=repositories">GitHub</a>. The metrics workflow can refresh the generated statistics asset from the Actions tab.
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-stats-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-stats-light.svg"><img src="assets/card-stats-dark.svg" alt="GitHub statistics"></picture>
+</p>
 
-<a href="https://github.com/2400030948/2400030948/actions/workflows/metrics.yml">Open the metrics workflow</a>
+<p align="center">
+  <img src="assets/metrics.languages.svg" alt="Most used languages">
+</p>
+
+<p align="center">
+  <img src="assets/metrics.achievements.svg" alt="GitHub achievements">
+</p>
 
 ---
 

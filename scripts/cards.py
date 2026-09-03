@@ -63,10 +63,154 @@ def card(project: dict[str, object], theme: str, metadata: dict[str, object]) ->
 <text x="30" y="180" fill="{muted}" font-size="11">{html.escape(live_text) if live_text else "Public repository"}</text></g></svg>'''
 
 
+def fetch_user() -> dict[str, object]:
+    request = Request(f"https://api.github.com/users/{OWNER}", headers={"Accept": "application/vnd.github+json", "User-Agent": "profile-assets-generator"})
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        request.add_header("Authorization", f"Bearer {token}")
+    try:
+        with urlopen(request, timeout=15) as response:
+            return json.load(response)
+    except (HTTPError, URLError, TimeoutError, ValueError):
+        return {}
+
+
+def fetch_owned_repos() -> list[dict[str, object]]:
+    token = os.environ.get("GITHUB_TOKEN")
+    repos: list[dict[str, object]] = []
+    page = 1
+    try:
+        while True:
+            request = Request(
+                f"https://api.github.com/users/{OWNER}/repos?per_page=100&page={page}&type=owner",
+                headers={"Accept": "application/vnd.github+json", "User-Agent": "profile-assets-generator"},
+            )
+            if token:
+                request.add_header("Authorization", f"Bearer {token}")
+            with urlopen(request, timeout=15) as response:
+                batch = json.load(response)
+            repos += batch
+            if len(batch) < 100:
+                break
+            page += 1
+    except (HTTPError, URLError, TimeoutError, ValueError):
+        pass
+    return [repo for repo in repos if not repo.get("fork")]
+
+
+CONTRIB_QUERY = """
+query($login:String!){
+  user(login:$login){
+    contributionsCollection{
+      contributionCalendar{
+        totalContributions
+        weeks{ contributionDays{ date contributionCount } }
+      }
+    }
+  }
+}
+"""
+
+def fetch_contribution_stats() -> tuple[int, int, int] | None:
+    """Return (total, current_streak, longest_streak), or None without a token."""
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        return None
+    body = json.dumps({"query": CONTRIB_QUERY, "variables": {"login": OWNER}}).encode()
+    request = Request(
+        "https://api.github.com/graphql",
+        data=body,
+        headers={
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "profile-assets-generator",
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {token}",
+        },
+    )
+    try:
+        with urlopen(request, timeout=15) as response:
+            data = json.load(response)
+    except (HTTPError, URLError, TimeoutError, ValueError):
+        return None
+    if data.get("errors"):
+        return None
+    calendar = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    days = sorted((day["date"], day["contributionCount"]) for week in calendar["weeks"] for day in week["contributionDays"])
+    if not days:
+        return calendar["totalContributions"], 0, 0
+    longest = streak = 0
+    for _, count in days:
+        streak = streak + 1 if count > 0 else 0
+        longest = max(longest, streak)
+    current = 0
+    for date, count in reversed(days):
+        if count > 0:
+            current += 1
+        elif date != days[-1][0]:
+            break
+    return calendar["totalContributions"], current, longest
+
+
+def stats_card(theme: str, tiles: list[tuple[str, str]]) -> str:
+    dark = theme == "dark"
+    background = "#0d1117" if dark else "#ffffff"
+    foreground = "#e6edf3" if dark else "#24292f"
+    muted = "#8b949e" if dark else "#57606a"
+    border = "#30363d" if dark else "#d0d7de"
+    accent = "#39D353"
+    cols = 3
+    rows = (len(tiles) + cols - 1) // cols
+    width, pad, row_height = 480, 24, 46
+    height = pad + 52 + (rows - 1) * row_height + 17 + pad
+    tile_width = (width - 2 * pad) / cols
+    parts = [
+        f'<text x="{pad}" y="{pad + 14}" font-size="15" font-weight="700" fill="{accent}">Krishna Magar</text>',
+        f'<text x="{width - pad}" y="{pad + 14}" font-size="11" text-anchor="end" fill="{muted}">at a glance</text>',
+        f'<line x1="{pad}" y1="{pad + 26}" x2="{width - pad}" y2="{pad + 26}" stroke="{border}"/>',
+    ]
+    top = pad + 52
+    for index, (label, value) in enumerate(tiles):
+        cx = pad + (index % cols) * tile_width
+        cy = top + (index // cols) * row_height
+        parts.append(f'<text x="{cx:.0f}" y="{cy:.0f}" font-size="23" font-weight="700" fill="{foreground}">{html.escape(value)}</text>')
+        parts.append(f'<text x="{cx:.0f}" y="{cy + 17:.0f}" font-size="10.5" fill="{muted}">{html.escape(label)}</text>')
+    body = "".join(parts)
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" '
+        f'role="img" aria-label="Krishna Magar GitHub statistics" font-family="system-ui, sans-serif">'
+        f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10" fill="{background}" stroke="{border}"/>'
+        f"{body}</svg>"
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--projects", type=Path, default=ROOT / "assets/projects.json")
     args = parser.parse_args()
+
+    user = fetch_user()
+    owned = fetch_owned_repos()
+    total_stars = sum(int(repo.get("stargazers_count", 0)) for repo in owned)
+
+    tiles = [
+        ("Public repos", f"{int(user.get('public_repos', 0)):,}"),
+        ("Followers", f"{int(user.get('followers', 0)):,}"),
+        ("Total stars", f"{total_stars:,}"),
+    ]
+    contribution_stats = fetch_contribution_stats()
+    if contribution_stats:
+        total, current, longest = contribution_stats
+        tiles += [
+            ("Contributions (1y)", f"{total:,}"),
+            ("Current streak", f"{current:,}"),
+            ("Longest streak", f"{longest:,}"),
+        ]
+
+    for theme in ("dark", "light"):
+        output = ROOT / f"assets/card-stats-{theme}.svg"
+        output.write_text(stats_card(theme, tiles), encoding="utf-8")
+    print(f"wrote card-stats-*.svg  ({len(tiles)} tiles)")
+
     projects = json.loads(args.projects.read_text(encoding="utf-8"))
     for index, project in enumerate(projects, 1):
         metadata = repo_data(str(project["repo"]))

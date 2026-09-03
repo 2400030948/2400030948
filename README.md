@@ -51,7 +51,7 @@ Self-ratings are personal working estimates, not certifications. Language mix is
 ## `~/` contribution calendar
 
 <p align="center">
-  <img src="assets/github-metrics.svg" alt="GitHub contribution calendar">
+  <img src="assets/metrics.isocalendar.svg" alt="3D isometric contribution calendar">
 </p>
 
 <p align="center">

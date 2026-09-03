@@ -12,7 +12,8 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Stats card
+        uses: lowlighter/metrics@latest
         with:
           filename: assets/github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
@@ -26,5 +27,14 @@ jobs:
           plugin_languages_limit: 8
           plugin_languages_sections: recently-used, most-used
           plugin_languages_details: bytes-size, percentage
+
+      - name: Isometric contribution calendar
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics.isocalendar.svg
+          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ""
+          config_timezone: Asia/Kolkata
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year

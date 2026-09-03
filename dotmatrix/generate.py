@@ -1,5 +1,5 @@
 from PIL import Image, ImageEnhance, ImageFilter
-import os, glob
+import os, glob, math
 
 # ---- CONFIG ----
 INPUT_DIR = "dotmatrix/input"
@@ -49,9 +49,12 @@ def main():
     small = crop.resize((GRID, GRID), Image.LANCZOS)
     small = ImageEnhance.Contrast(small).enhance(1.12)
     small = ImageEnhance.Color(small).enhance(1.2)
-    small = ImageEnhance.Brightness(small).enhance(1.08)
+    small = ImageEnhance.Brightness(small).enhance(1.22)  # brighter
 
     px = small.load()
+
+    cx_center, cy_center = GRID / 2, GRID / 2
+    max_dist = math.hypot(GRID / 2, GRID / 2)
 
     rows_svg = []
     for ry in range(GRID):
@@ -60,6 +63,13 @@ def main():
             r, g, b = px[cx, ry]
             lum = luminance(r, g, b) / 255.0
             factor = lum ** 0.9
+
+            # synthetic vignette so corners/edges fade toward empty,
+            # giving a "sticker/cutout" look instead of a filled square
+            dist = math.hypot(cx - cx_center, ry - cy_center) / max_dist
+            vignette = max(0.0, 1.0 - (dist ** 2.2) * 1.35)
+            factor *= vignette
+
             radius = factor * MAX_R
             if radius < 0.35:
                 if radius < 0.12:

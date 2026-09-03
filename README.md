@@ -1,7 +1,3 @@
-<div align="center">
-
-# Krishna Magar
-
 <p align="center">
   <img src="dotmatrix/output/dotmatrix_portrait.svg" width="400" />
 </p>

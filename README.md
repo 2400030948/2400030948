@@ -62,7 +62,7 @@ Self-ratings are personal working estimates, not certifications. Language mix is
 ## `~/` the numbers
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-stats-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-stats-light.svg"><img src="assets/card-stats-dark.svg" alt="GitHub statistics"></picture>
+  <img src="assets/glance.svg" width="480" />
 </p>
 
 <p align="center">

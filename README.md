@@ -51,7 +51,6 @@ Self-ratings are personal working estimates, not certifications. Language mix is
 ## `~/` contribution calendar
 
 ![Snake animation](https://raw.githubusercontent.com/2400030948/2400030948/output/github-contribution-grid-snake.svg)
----
 
 ## `~/` the numbers
 

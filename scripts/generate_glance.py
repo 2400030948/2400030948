@@ -94,7 +94,7 @@ def calc_contrib_and_streaks(days):
 def build_svg(username, total_stars, public_repos, followers,
               contributions_1y, current_streak, longest_streak):
 
-    W, H = 480, 150
+    W, H = 480, 166
     bg = "#0d1117"
     border = "#30363d"
     green = "#39D353"
@@ -108,7 +108,7 @@ def build_svg(username, total_stars, public_repos, followers,
         '''
 
     col_xs = [24, 190, 356]
-    row_ys = [66, 122]
+    row_ys = [82, 138]
 
     stats = [
         (total_stars, "Total stars"),

@@ -2,7 +2,9 @@
 
 # Krishna Magar
 
-<!-- dot-matrix portrait goes here -->
+<p align="center">
+  <img src="dotmatrix/output/dotmatrix_portrait.svg" width="400" />
+</p>
 
 Software Engineer · Computer Science Engineer
 

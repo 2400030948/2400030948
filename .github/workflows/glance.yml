@@ -1,0 +1,35 @@
+name: Refresh glance stat card
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  glance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Generate glance.svg
+        env:
+          GH_USERNAME: "2400030948"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_glance.py
+
+      - name: Commit glance.svg
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: refresh glance stat card"
+          add: assets/glance.svg

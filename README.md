@@ -1,16 +1,15 @@
 <p align="center">
   <img src="dotmatrix/output/dotmatrix_portrait.svg" width="400" />
 </p>
-
 <p align="center">
  Computer Science Engineer
 </p>
-
-<a href="https://www.linkedin.com/in/krishna-magar-cse/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a> <a href="mailto:magarkrishna448pc@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a> <a href="https://github.com/2400030948"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://leetcode.com/u/kl2400030948/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"></a> <a href="https://www.codechef.com/users/kl_2400030948"><img src="https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white" alt="CodeChef"></a>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=39D353&center=true&vCenter=true&width=700&lines=Backend+systems;Java+%7C+Spring+Boot+%7C+Python;Microservices+%7C+Databases;AI+%2F+GenAI+%7C+Full-stack+development" alt="Animated introduction">
-
-</div>
+<p align="center">
+  <a href="https://www.linkedin.com/in/krishna-magar-cse/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a> <a href="mailto:magarkrishna448pc@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a> <a href="https://github.com/2400030948"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://leetcode.com/u/kl2400030948/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"></a> <a href="https://www.codechef.com/users/kl_2400030948"><img src="https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white" alt="CodeChef"></a>
+</p>
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=39D353&center=true&vCenter=true&width=700&lines=Backend+systems;Java+%7C+Spring+Boot+%7C+Python;Microservices+%7C+Databases;AI+%2F+GenAI+%7C+Full-stack+development" alt="Animated introduction">
+</p>
 
 ---
 
